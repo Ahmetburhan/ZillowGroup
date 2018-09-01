@@ -1,0 +1,97 @@
+
+
+ul {
+    list-style: none;
+}
+
+.header {
+    margin: 0px;
+    /*padding-bottom: 80px;*/
+    color: white;
+    background: gray;
+    /*text-align: center;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 100%;
+}
+
+.header h1 {
+    margin-top: 0px;
+}
+
+/*h1 {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}*/
+
+#userPreferences {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+#searchResults {
+    background: aqua;
+    margin: 0px auto;
+    width: 50%;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.photo {
+    /* margin: 5px 10px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background: gray;
+    width: 150px; */
+    height: 100%;
+    /* width: 325px; */
+}
+.photo:hover{
+    background: gray;
+    height: 100%;
+
+}
+
+.name, .age, .catchphrase {
+    margin: 0px 10px;
+}
+
+.col {
+        flex-basis: 0;
+        flex-grow: 1;
+        /* max-width: 100%; */
+       display: inline-block;
+
+}
+.radio{
+    display: block;
+}
+.radioSelect {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 5px;   
+}
+input[type=radio] {
+    padding: 5px;
+    margin: 5px;
+}
+.header h1 {
+    margin-top: 12px;
+}
+
+#headerImg {
+    float: left;
+    width: 200px;
+}
+
+.card-columns {
+    @include media-breakpoint-only(lg) {
+        column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+        column-count: 5;
+    }
+}
