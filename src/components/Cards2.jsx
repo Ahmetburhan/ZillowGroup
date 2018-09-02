@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Col, Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Tooltip, UncontrolledTooltip, Popover, PopoverHeader, PopoverBody, Collapse
+    CardTitle, CardSubtitle, Button, Tooltip, UncontrolledTooltip, Popover, PopoverHeader, PopoverBody
 } from 'reactstrap';
 import ModalUser from './ModalUser';
 
@@ -11,19 +11,17 @@ export default class Cards extends React.Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            popoverOpen: false,
-             collapse: false
+            popoverOpen: false
         };
 
     }
     state = {
         pictures: this.props.pictures,
     }
-  
+
     toggle() {
         this.setState({
-            popoverOpen: !this.state.popoverOpen,
-            collapse: !this.state.collapse
+            popoverOpen: !this.state.popoverOpen
         });
     }
 
@@ -52,23 +50,12 @@ export default class Cards extends React.Component {
                                 marginBottom: "1em"
                             }} >
                                 <div key={user.id}>
-                                    
+                                    <CardImg top width="100%" className="photo" src={user.urls.regular} alt="Card image cap" />
                                     <CardBody>
-                                        <CardImg onClick={this.toggle} style={{ marginBottom: '1rem' }}className="photo" src={user.urls.regular} alt="Card image cap" />
                                         <CardTitle>{user.user.name} </CardTitle>
                                         <CardSubtitle>#{user.user.username}</CardSubtitle>
                                         <CardText>Age:
                                         {user.id}</CardText>
-                                        <Collapse isOpen={this.state.collapse}>
-                                            <Card>
-                                                <CardBody>
-                                                    Anim pariatur cliche reprehenderit,
-             enim eiusmod high life accusamus terry richardson ad squid. Nihil
-             anim keffiyeh helvetica, craft beer labore wes anderson cred
-             nesciunt sapiente ea proident.
-            </CardBody>
-                                            </Card>
-                                        </Collapse>
 
                                         <ModalUser user={user} />
 
