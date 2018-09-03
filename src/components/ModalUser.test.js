@@ -3,7 +3,7 @@ import { shallow, mount, render } from 'enzyme';
 
 import ModalExample from './ModalUser';
 
-describe('Modal Example', () => {
+describe('ModalExample', () => {
     it('should render InputArea', () => {
         const wrapper = shallow(<ModalUser />);
         expect(wrapper.containsAllMatchingElements([
