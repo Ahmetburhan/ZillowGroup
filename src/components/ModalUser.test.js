@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
-import ModalUser from './ModalUser';
+import ModalExample from './ModalUser';
 
-describe('ModalUser', () => {
+describe('Modal Example', () => {
     it('should render InputArea', () => {
         const wrapper = shallow(<ModalUser />);
         expect(wrapper.containsAllMatchingElements([

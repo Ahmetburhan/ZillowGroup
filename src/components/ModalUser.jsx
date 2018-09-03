@@ -22,12 +22,12 @@ class ModalExample extends React.Component {
     render() {
         return (
             <div>
-                <Button color="secondary" onClick={this.toggle}>More info{this.props.buttonLabel}</Button>
+                <Button color="info" onClick={this.toggle}>More info{this.props.buttonLabel}</Button>
                 <Modal isOpen={this.state.modal} modalTransition={{ timeout: 700 }} backdropTransition={{ timeout: 200 }}
                     toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Hi! My name is {this.props.picture.user.name} </ModalHeader>
                     <ModalBody>
-                        <h4> You can reach me @ # {this.props.picture.user.username}</h4>
+                        <h4> You can reach me <i className="fab fa-instagram">   {this.props.picture.user.username}</i></h4>
                         <CardImg style={{
                             fontFamily: 'Helvetica Neue',
                             marginBottom: "1em",

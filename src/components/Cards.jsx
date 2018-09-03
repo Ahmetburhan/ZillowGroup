@@ -28,7 +28,7 @@ export default class Cards extends React.Component {
     }
 
     render() {
-        console.log("props coming here", this.props)
+        // console.log("props coming here", this.props)
         const pictures = this.props.pictures;
         
 
@@ -40,11 +40,11 @@ export default class Cards extends React.Component {
                 <h2>{pictures && pictures.length} Photos Found</h2>
             <div className="card-columns">
                 {pictures && pictures.map((picture, index) => {
-                    console.log(picture)
-                    console.log(index)
+                    // console.log(picture)
+                    // console.log(index)
                     return (
 
-                        // <Col className="col" sm="6" md="4" lg="3" mt="4">
+                    
                              <Col>
 
                             <Card id="photoCard" inverse style={{
@@ -54,10 +54,15 @@ export default class Cards extends React.Component {
                                 <CardImg width="100%" onClick={this.toggle} style={{ marginBottom: '1rem' }} className="photo" src={picture.urls.regular} alt="Card image cap" />
                                 <CardImgOverlay>
                                     <CardTitle>{picture.user.name}</CardTitle>
-                                    <CardSubtitle>#{picture.user.username}</CardSubtitle>
-                                    <CardText>ID: {picture.id}</CardText>
+                                    <CardSubtitle>
+  <i className="fab fa-instagram">   {picture.user.username}</i>
+
+                                  </CardSubtitle>
+                                    <CardText>#{picture.tags[0].title}  #{picture.tags[1].title}  
+  #{picture.tags[2].title} 
+                                    </CardText>
                                     <CardText>
-                                        <small className="text-muted">Last updated 3 mins ago</small>
+                                        <i className="fas fa-heart" style={{fontSize:"1.5rem",color:"white", float: "right"}}> #{picture.likes}</i>                      
                                     </CardText>
                                     <ModalUser picture={picture} />
 
