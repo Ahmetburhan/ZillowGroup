@@ -47,6 +47,8 @@ ul {
     background: gray;
     width: 150px; */
     height: 100%;
+    border-radius: 18px;
+
     /* width: 325px; */
 }
 .photo:hover{
@@ -78,21 +80,42 @@ input[type=radio] {
     padding: 5px;
     margin: 5px;
 }
+label {
+    display: inline-block;
+    margin-top: 1.6rem;
+    margin-bottom: .5rem;
+}
 .header h1 {
     margin-top: 12px;
     text-shadow: 0 0 3px rgba(0, 0, 0, .5)
+}
+.card{
+    border: none;
 }
 
 #headerImg {
     float: left;
     width: 200px;
 }
+.card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* padding: 1.25rem; */
+    padding-top: 1.2em;
+    text-align: left;
+    padding-left: 1.2rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, .5);
+    /* background: rgba(75, 82, 118, 0.6); */
+    visibility: hidden;
+    transition: .4s;
+    transform: translateY(1em);
 
-.card-columns {
-    @include media-breakpoint-only(lg) {
-        column-count: 4;
-    }
-    @include media-breakpoint-only(xl) {
-        column-count: 5;
-    }
+}
+
+#photoCard:hover .card-img-overlay {
+    visibility: visible;
+    opacity: 1;
 }

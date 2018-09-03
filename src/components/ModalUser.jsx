@@ -27,7 +27,7 @@ class ModalExample extends React.Component {
                     toggle={this.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.toggle}>Hi! My name is {this.props.picture.user.name} </ModalHeader>
                     <ModalBody>
-                        <h4> You can reach me @ </h4>
+                        <h4> You can reach me @ # {this.props.picture.user.username}</h4>
                         <CardImg style={{
                             fontFamily: 'Helvetica Neue',
                             marginBottom: "1em",
@@ -38,7 +38,7 @@ class ModalExample extends React.Component {
                       
           </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" href={`mailto:${this.props.picture.links.self}?subject=Hi ${this.props.picture.user.name} Let's chat!&body=Thanks to Lonely Hearts Dating Service, Lets schedule some time to meet up. Looking forward to talking to you.`}  onClick={this.toggle}>Send me e-Mail</Button>{' '}
+                        <Button color="primary" href={`mailto:${this.props.picture.links.self}?subject=Hi ${this.props.picture.user.name} Let's chat!&body=Thanks to Zillow Group, Lets schedule some time to meet up. Looking forward to talking to you.`}  onClick={this.toggle}>Send me e-Mail</Button>{' '}
                         <Button color="danger" onClick={this.toggle}>Cancel</Button>
                     </ModalFooter>
                 </Modal>

@@ -1,9 +1,6 @@
-import React, {
-    Component
-} from 'react';
+import React, { Component } from 'react';
 import request from 'superagent';
 import Cards from './components/Cards';
-import SubmitForm from './components/SubmitForm';
 
 
 
@@ -19,7 +16,6 @@ class App extends Component {
 
 
     }
-    // https://api.unsplash.com/search/collections?page=1&query=office
 
 
 
@@ -43,40 +39,44 @@ class App extends Component {
 
 
 
-    onSubmit (filteredUsers) {
-     this.setState ({
-         filteredUsers,
-
-     })
-    }
-    handleChange (e){
-        e.preventDefault;
-        this.setState({
-            query: e.target.value,
-        })
+    handleChange(event) {
+        this.setState({ query: event.target.value });
         console.log(this.state.query)
     }
+
+    onSubmit(event) {
+        console.log('New photo search was submitted: ' + this.state.query);
+        event.preventDefault();
+        this.setState({ query: event.target.value });
+
+    }
+
 
 
     render() {
 
         return ( <div className = "App" >
 
-            <form onSubmit={this.handleSubmit}>
-                    <label>
-                Search for Photos:
-          <input type="text" name="photos"  onChange={this.handleChange} />
-            </label>
+            {/* <form onSubmit={this.handleChange}>
+              <label>
+                    Search for Photos:
+                <input type="text" name="photos"  onChange={this.handleChange} pictures={
+                        this.state.pictures
+                    } />
+              </label>
+            </form> */}
+
+            <form onSubmit={this.onSubmit}>
+                <label>
+                    Search:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="Submit" />
             </form>
 
 
-             <SubmitForm onSubmit = {this.onSubmit} users = {
-                this.state.users
-            }
-            />
-
-            <Cards handleClick = {
-                this.handleClick
+            <Cards handleChange = {
+                this.handleChange
             }
                 pictures = {
                     this.state.pictures
