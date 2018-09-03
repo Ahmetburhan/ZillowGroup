@@ -39,8 +39,8 @@ export default class Cards extends React.Component {
 
                 <h2>{pictures && pictures.length} Photos Found</h2>
             <div className="card-columns">
-                {pictures && pictures.map((user, index) => {
-                    console.log(user)
+                {pictures && pictures.map((picture, index) => {
+                    console.log(picture)
                     console.log(index)
                     return (
 
@@ -51,15 +51,15 @@ export default class Cards extends React.Component {
                                 fontFamily: 'Helvetica Neue',
                                 marginBottom: "1em"
                             }} >
-                                <div key={user.id}>
+                                <div key={picture.id}>
                                     
                                     <CardBody>
-                                        <CardImg onClick={this.toggle} style={{ marginBottom: '1rem' }}className="photo" src={user.urls.regular} alt="Card image cap" />
-                                        <CardTitle>{user.user.name} </CardTitle>
-                                        <CardSubtitle>#{user.user.username}</CardSubtitle>
+                                        <CardImg onClick={this.toggle} style={{ marginBottom: '1rem' }}className="photo" src={picture.urls.regular} alt="Card image cap" />
+                                        <CardTitle>{picture.user.name} </CardTitle>
+                                        <CardSubtitle>#{picture.user.username}</CardSubtitle>
                                         <CardText>Age:
-                                        {user.id}</CardText>
-                                        <Collapse isOpen={this.state.collapse}>
+                                        {picture.id}</CardText>
+                                        <Collapse isOpen={this.state.collapse} >
                                             <Card>
                                                 <CardBody>
                                                     Anim pariatur cliche reprehenderit,
@@ -70,7 +70,7 @@ export default class Cards extends React.Component {
                                             </Card>
                                         </Collapse>
 
-                                        <ModalUser user={user} />
+                                        <ModalUser picture={picture} />
 
                                     </CardBody>
                                 </div>

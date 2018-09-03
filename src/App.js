@@ -12,10 +12,13 @@ class App extends Component {
         super(props);
         this.state = {
             users: [],
-            filteredUsers: []
+            filteredUsers: [],
+            query: "world"
 
         }
      this.onSubmit = this.onSubmit.bind(this);
+     this.handleChange = this.handleChange.bind(this);
+
 
     }
 
@@ -24,7 +27,7 @@ class App extends Component {
 
     componentDidMount() {
         request
-            .get('https://api.unsplash.com/photos?client_id=b32091e8b92b6bb1f30f2409ef141dc0c31ffc30cc7dfa5ad46308738fe4c1f0&query=love&per_page=100').then(res => {
+            .get(`https://api.unsplash.com/photos?client_id=b32091e8b92b6bb1f30f2409ef141dc0c31ffc30cc7dfa5ad46308738fe4c1f0&query=${this.state.query}&per_page=100`).then(res => {
                 if (res.ok) {
                     console.log(res.body)
             
@@ -48,11 +51,27 @@ class App extends Component {
 
      })
     }
+    handleChange (e){
+        e.preventDefault;
+        this.setState({
+            query: e.target.value,
+        })
+        console.log(this.state.query)
+    }
 
 
     render() {
 
         return ( <div className = "App" >
+
+            <form onSubmit={this.handleSubmit}>
+                    <label>
+                Search for Photos:
+          <input type="text" name="photos"  onChange={this.handleChange} />
+            </label>
+            </form>
+
+
              <SubmitForm onSubmit = {this.onSubmit} users = {
                 this.state.users
             }
@@ -64,9 +83,7 @@ class App extends Component {
                 pictures = {
                     this.state.pictures
             }
-            user = {
-                this.state.selectedUser
-            }/>
+          />
 
             </div>
         )
